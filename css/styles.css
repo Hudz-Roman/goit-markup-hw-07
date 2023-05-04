@@ -25,10 +25,28 @@ body {
 }
 
 .container {
-  width: 1158px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
+  /* Phone styles & > */
+  min-width: 320px;
+  max-width: 428px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    margin: 0 156px;
+  }
 }
 
 h1,
@@ -56,7 +74,23 @@ ul {
 .container.header {
   display: flex;
   align-items: center;
-  height: 72px;
+  height: 70px;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .container.header {
+    height: 72px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1158px) {
+  .container.header {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+  }
 }
 
 .main-nav.item.current-page {
@@ -124,8 +158,14 @@ ul {
 /* links for main-nav-link (studio, portfolio, contacts) */
 
 .nav-menu {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+}
+
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    display: none;
+  }
 }
 
 .main-nav {
@@ -166,15 +206,45 @@ ul {
   gap: 40px;
 }
 
+/* Phone */
 .contact-nav.list {
-  display: flex;
-  gap: 40px;
+  /* display: flex;
+  gap: 40px; */
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .contact-nav.list {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1158px) {
+  .contact-nav.list {
+    display: flex;
+    gap: 40px;
+  }
 }
 
 /* links for tel, email */
 .address {
-  font-style: normal;
-  margin-left: auto;
+  /* font-style: normal;
+  margin-left: auto; */
+}
+
+@media screen and (max-width: 767px) {
+  .address {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .address {
+    display: block;
+    margin-left: auto;
+  }
 }
 
 .contact-nav {
@@ -195,6 +265,13 @@ ul {
 .contact-nav.link:hover,
 .contact-nav.link:focus {
   color: var(--pressed-state);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+  .contact-nav.item:not(:last-child) {
+    display: inline-block;
+    margin-bottom: 12px;
+  }
 }
 
 /* Main */
@@ -271,8 +348,17 @@ ul {
 
 /* What are we doing */
 
+/* Phone */
 .third-section {
-  padding-bottom: 120px;
+  display: none;
+  /* padding-bottom: 120px; */
+}
+
+/* Desktop */
+@media screen and (min-width: 1128px) {
+  .third-section {
+    display: block;
+  }
 }
 
 .advantages.list,
@@ -919,4 +1005,93 @@ ul {
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: var(--pressed-state);
+}
+
+/* Mobile menu styles */
+
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px;
+  background-color: var(--white-background);
+  z-index: 999;
+
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
+}
+
+.menu-container .menu-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #fff;
+}
+
+.mobile-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mobile-menu.list {
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 284px;
+}
+
+.mobile-li-item:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.mobile-menu .link {
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.mobile-contacts.list {
+  display: block;
+  margin-bottom: 48px;
+}
+
+.footer-social.mobile-social {
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
 }
