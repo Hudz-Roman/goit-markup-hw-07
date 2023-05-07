@@ -59,7 +59,8 @@ ul {
 
 .img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Header */
@@ -296,11 +297,6 @@ ul {
 /* Main */
 .hero-section {
   background-color: var(--dark);
-  background-image: linear-gradient(
-      var(--hero-background),
-      var(--hero-background)
-    ),
-    url(../images/hero.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -312,16 +308,71 @@ ul {
   text-align: center;
 }
 
-/* @media screen and (min-width: 428px) {
+@media screen and (max-width: 428px) {
   .hero-section {
-    
+    background-image: linear-gradient(
+        var(--hero-background),
+        var(--hero-background)
+      ),
+      url(../images/hero_img/Dark-bg_mob@1x-1.jpg);
   }
-} */
 
-@media screen and (min-width: 1158px) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero-section {
+      background-image: linear-gradient(
+          var(--hero-background),
+          var(--hero-background)
+        ),
+        url(../images/hero_img/Dark-bg_mob@2x-1.jpg);
+    }
+  }
+}
+
+@media screen and (min-width: 429px) and (max-width: 768px) {
+  .hero-section {
+    background-image: linear-gradient(
+        var(--hero-background),
+        var(--hero-background)
+      ),
+      url(../images/hero_img/Dark-bg_tab@1x.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero-section {
+      background-image: linear-gradient(
+          var(--hero-background),
+          var(--hero-background)
+        ),
+        url(../images/hero_img/Dark-bg_tab@2x.jpg);
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
   .hero-section {
     padding-top: 188px;
     padding-bottom: 188px;
+    background-image: linear-gradient(
+        var(--hero-background),
+        var(--hero-background)
+      ),
+      url(../images/hero_img/people-office1_desc@1x.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero-section {
+      background-image: linear-gradient(
+          var(--hero-background),
+          var(--hero-background)
+        ),
+        url(../images/hero_img/people-office1_desc@2x.jpg);
+    }
   }
 }
 
